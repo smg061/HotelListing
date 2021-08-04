@@ -29,7 +29,7 @@ namespace HotelListing
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DatabaseContext>(opt =>
-                opt.UseSqlServer(Configuration.GetConnectionString("sqlExpressConnection"))
+                opt.UseSqlServer(Configuration.GetConnectionString("sqlConnection"))
             );
 
 
