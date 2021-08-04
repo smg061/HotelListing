@@ -13,5 +13,7 @@ namespace HotelListing.Persistence
 
         public string ShortName { get; set; }
 
+        public virtual IList<Hotel> Hotels { set; get; }
+
     }
 }

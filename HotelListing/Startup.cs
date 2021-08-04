@@ -1,3 +1,4 @@
+using HotelListing.Configurations;
 using HotelListing.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +33,6 @@ namespace HotelListing
                 opt.UseSqlServer(Configuration.GetConnectionString("sqlConnection"))
             );
 
-
             services.AddCors(opt=> {
 
                 opt.AddPolicy("AllowAll", builder =>
@@ -42,6 +42,7 @@ namespace HotelListing
                 );
             });
 
+            services.AddAutoMapper(typeof(MapperInitializer));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HotelListing", Version = "v1" });
