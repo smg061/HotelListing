@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace HotelListing.Persistence
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : IdentityDbContext<ApiUser>
     {
         public DatabaseContext(DbContextOptions options): base(options){}
-
 
         public DbSet<Country> Countries { get; set; }
 
@@ -18,7 +18,7 @@ namespace HotelListing.Persistence
         protected override void OnModelCreating(ModelBuilder builder)
         {
 
-
+            base.OnModelCreating(builder);
             builder.Entity<Country>().HasData(
                 new Country
                 {

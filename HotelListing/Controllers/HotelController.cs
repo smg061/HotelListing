@@ -47,7 +47,7 @@ namespace HotelListing.Controllers
         {
             try
             {
-                var hotel = await _unitOfWork.Hotels.Get(x => x.Id == id);
+                var hotel = await _unitOfWork.Hotels.Get(x => x.Id == id, new List<string> {"Country"});
                 var result = _mapper.Map<HotelDTO>(hotel);
                 return Ok(result);
 
