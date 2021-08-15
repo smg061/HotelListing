@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HotelListing.IRepository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,6 @@ namespace HotelListing.Controllers
     {
         protected readonly IUnitOfWork _unitOfWork;
         protected readonly IMapper _mapper; // mapper to map the db results to DTO 
-
         public BaseController(IUnitOfWork unitOfWork,  IMapper mapper)
         {
             _unitOfWork = unitOfWork;
