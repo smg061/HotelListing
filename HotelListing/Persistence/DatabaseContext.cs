@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using HotelListing.Configurations.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,14 @@ namespace HotelListing.Persistence
         {
 
             base.OnModelCreating(builder);
+            // apply the admin configuration
+
+
+            builder.ApplyConfiguration(new RoleConfiguration());
+            builder.ApplyConfiguration(new HotelConfiguration());
+
+
+
             builder.Entity<Country>().HasData(
                 new Country
                 {
@@ -42,39 +51,6 @@ namespace HotelListing.Persistence
 
                 }
 
-                );
-            builder.Entity<Hotel>()
-                .HasData(
-                new Hotel
-                {
-                    Id=1,
-                    Name = "Sandals Resort and Spa",
-                    Address = "123 Street Avenue",
-                    CountryId = 1,
-                    Rating = 4.5
-
-
-                },
-
-                new Hotel
-                {
-                    Id=2,
-                    Name = "Chanclas Resort and Spa",
-                    Address = "123 Camino Avenida",
-                    CountryId = 2,
-                    Rating = 3.8
-
-                },
-
-                new Hotel
-                {
-                    Id=3,
-                    Name = "Huaraches Resort and Spa",
-                    Address = "123 Avenida Calles",
-                    CountryId = 3,
-                    Rating = 4.0
-
-                }
                 );
 
         }
