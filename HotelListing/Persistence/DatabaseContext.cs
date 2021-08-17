@@ -21,37 +21,10 @@ namespace HotelListing.Persistence
 
             base.OnModelCreating(builder);
             // apply the admin configuration
-
-
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new HotelConfiguration());
+            builder.ApplyConfiguration(new CountryConfiguration());
 
-
-
-            builder.Entity<Country>().HasData(
-                new Country
-                {
-                    Id = 1,
-                    Name = "Mexico",
-                    ShortName = "MX"
-
-                },
-                new Country
-                {
-                    Id = 2,
-                    Name = "United State",
-                    ShortName = "US"
-
-                },
-                new Country
-                {
-                    Id = 3,
-                    Name = "Costa Rice",
-                    ShortName = "CR"
-
-                }
-
-                );
 
         }
 
