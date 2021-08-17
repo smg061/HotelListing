@@ -30,6 +30,8 @@ namespace HotelListing.Models
         public string PhoneNumber { set; get; }
 
 
+        public IList<string> Roles { get; set; }
+
 
 
     }

@@ -55,6 +55,8 @@ namespace HotelListing.Controllers
                     
                 }
 
+                await _userManager.AddToRolesAsync(user, userDTO.Roles);
+
                 return Accepted();
 
             }
