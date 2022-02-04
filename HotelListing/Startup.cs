@@ -40,7 +40,6 @@ namespace HotelListing
             services.ConfigureIdentity();
 
             services.AddCors(opt=> {
-
                 opt.AddPolicy("AllowAll", builder =>
                     builder.AllowAnyOrigin()
                     .AllowAnyMethod()
